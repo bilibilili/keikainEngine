@@ -8,6 +8,7 @@
 
 namespace keikain
 {
+// about the version
 #define KEIKAIN_ENGINE_VERSION_MAJOR 0
 #define KEIKAIN_ENGINE_VERSION_MINOR 0
 #define KEIKAIN_ENGINE_VERSION_REVISION 1

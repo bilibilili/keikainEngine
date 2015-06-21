@@ -21,13 +21,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="KReferenceCounted.h">
+    <ClInclude Include="Core\KReferenceCounted.h">
       <Filter>头文件\Core</Filter>
     </ClInclude>
-    <ClInclude Include="KType.h">
+    <ClInclude Include="Utilities\KCompileConfig.h">
       <Filter>头文件\Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="KCompileConfig.h">
+    <ClInclude Include="Utilities\KType.h">
       <Filter>头文件\Utilities</Filter>
     </ClInclude>
   </ItemGroup>
