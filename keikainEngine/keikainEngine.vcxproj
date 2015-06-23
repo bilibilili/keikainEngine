@@ -11,9 +11,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Core\KCursorManager.h" />
+    <ClInclude Include="Core\Keikain.h" />
+    <ClInclude Include="Core\KEngine.h" />
+    <ClInclude Include="Core\KFileManager.h" />
+    <ClInclude Include="Core\KRandomManager.h" />
     <ClInclude Include="Core\KReferenceCounted.h" />
+    <ClInclude Include="Core\KRenderManager.h" />
+    <ClInclude Include="Core\KSceneManager.h" />
+    <ClInclude Include="Core\KTimer.h" />
     <ClInclude Include="Utilities\KCompileConfig.h" />
-    <ClInclude Include="Utilities\KType.h" />
+    <ClInclude Include="Utilities\KTypes.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="keikainTest.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BDB13513-1EE6-4C3B-BC24-B08F8F334BE2}</ProjectGuid>

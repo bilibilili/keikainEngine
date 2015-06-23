@@ -6,7 +6,7 @@
 #ifndef __KEIKAIN_KERFERENCECOUNTED_H__
 #define __KEIKAIN_KERFERENCECOUNTED_H__
 
-#include "../Utilities/KType.h"
+#include "../Utilities/KTypes.h"
 
 namespace keikain
 {
