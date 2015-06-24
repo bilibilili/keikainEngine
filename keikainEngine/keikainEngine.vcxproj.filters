@@ -19,6 +19,21 @@
     <Filter Include="头文件\Core">
       <UniqueIdentifier>{afdd1725-0b97-49ca-a113-8d0dc2e129d5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Examples">
+      <UniqueIdentifier>{5aa1dcf5-4c15-49dd-8ac8-97dfefb60933}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Module">
+      <UniqueIdentifier>{7e64395d-3310-47c0-9265-c79178fd2421}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\PrimativeElements">
+      <UniqueIdentifier>{ef24bf35-9369-4b8e-96ae-6a72ea8e91d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Collision">
+      <UniqueIdentifier>{d1f3c077-bc2d-44f8-80b9-04e167f5783a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Math">
+      <UniqueIdentifier>{abcc95ee-e14d-4d60-b554-351b208f59b9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utilities\KCompileConfig.h">
@@ -54,10 +69,40 @@
     <ClInclude Include="Core\KRandomManager.h">
       <Filter>头文件\Core</Filter>
     </ClInclude>
+    <ClInclude Include="Core\KScript.h">
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\KCreateEngineParameters.h">
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities\KDriverType.h">
+      <Filter>头文件\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="PrimativeElements\Vector3d.h">
+      <Filter>头文件\PrimativeElements</Filter>
+    </ClInclude>
+    <ClInclude Include="PrimativeElements\Vector2d.h">
+      <Filter>头文件\PrimativeElements</Filter>
+    </ClInclude>
+    <ClInclude Include="PrimativeElements\Dimension2d.h">
+      <Filter>头文件\PrimativeElements</Filter>
+    </ClInclude>
+    <ClInclude Include="PrimativeElements\Dimension3d.h">
+      <Filter>头文件\PrimativeElements</Filter>
+    </ClInclude>
+    <ClInclude Include="PrimativeElements\Ray2d.h">
+      <Filter>头文件\PrimativeElements</Filter>
+    </ClInclude>
+    <ClInclude Include="PrimativeElements\Ray3d.h">
+      <Filter>头文件\PrimativeElements</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\KMath.h">
+      <Filter>头文件\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="keikainTest.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="Examples\keikainTest.cpp">
+      <Filter>源文件\Examples</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

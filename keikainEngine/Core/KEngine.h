@@ -16,21 +16,21 @@
 
 // An important class.
 // We can access other objects by this class.
-// It is created by createKeikainEngine() in keikain.h.
+// It is created by createEngine() in Keikain.h.
 namespace keikain
 {
-	class KEnigne : public virtual KReferenceCounted
+	class KEngine : public virtual KReferenceCounted
 	{
 	public:
 		//! Runs the engine
 		/** It also represented the engine status.
 		usually we put it input while loop.
-		while(engine->run())
+		while(engine->runEngine())
 		{
 			// draw everything
 		}
 		*/
-		virtual bool run() = 0;
+		virtual bool runEngine() = 0;
 
 		//! Provides access to the render system for drawing geometory.
 		/** return the pointer to the render system.
@@ -62,10 +62,20 @@ namespace keikain
 		*/
 		virtual KRandomManager* getRadomManager() = 0;
 
-		//! Check if the window is running in fullscreen mode.
+		//! Check if the keikain engine is running in fullscreen mode.
 		/** return true if window is fullscreen
 		*/
 		virtual bool isFullScreen() const = 0;
+
+		//! Close itself,close the engine.
+		/** when the engine is close,the run() alaways return false
+		*/
+		virtual void closeEngine() = 0;
+		
+		//! Get the engine version.
+		/** return the version string about engine
+		*/
+		virtual c8* getVersion() const = 0;
 	private:
 
 	};

@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Core\KCreateEngineParameters.h" />
     <ClInclude Include="Core\KCursorManager.h" />
     <ClInclude Include="Core\Keikain.h" />
     <ClInclude Include="Core\KEngine.h" />
@@ -19,12 +20,21 @@
     <ClInclude Include="Core\KReferenceCounted.h" />
     <ClInclude Include="Core\KRenderManager.h" />
     <ClInclude Include="Core\KSceneManager.h" />
+    <ClInclude Include="Core\KScript.h" />
     <ClInclude Include="Core\KTimer.h" />
+    <ClInclude Include="Math\KMath.h" />
+    <ClInclude Include="PrimativeElements\Dimension2d.h" />
+    <ClInclude Include="PrimativeElements\Dimension3d.h" />
+    <ClInclude Include="PrimativeElements\Ray2d.h" />
+    <ClInclude Include="PrimativeElements\Ray3d.h" />
+    <ClInclude Include="PrimativeElements\Vector2d.h" />
+    <ClInclude Include="PrimativeElements\Vector3d.h" />
     <ClInclude Include="Utilities\KCompileConfig.h" />
+    <ClInclude Include="Utilities\KDriverType.h" />
     <ClInclude Include="Utilities\KTypes.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="keikainTest.cpp" />
+    <ClCompile Include="Examples\keikainTest.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BDB13513-1EE6-4C3B-BC24-B08F8F334BE2}</ProjectGuid>
