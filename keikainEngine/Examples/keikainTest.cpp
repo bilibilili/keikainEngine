@@ -12,7 +12,9 @@ int main()
 {
 	keikain::s16 aa = 12;
 	keikain::u8 a = 2;
+	keikain::s32 i;
 	printf("%d\n", a);
+	printf("%d\n", (i >> 31) != 0);
 	std::cout << a << " : " << "keikain" << std::endl;
 	return 0;
 }
