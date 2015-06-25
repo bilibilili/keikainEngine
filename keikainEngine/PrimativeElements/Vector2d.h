@@ -41,6 +41,9 @@ namespace keikain
 		Vector2d<T> operator/(const T& _n) const { return Vector2d<T>(X / _n, Y / _n); }
 		Vector2d<T>& operator/=(const T& _n) { X /= _n; Y /= _n; return *this; }
 
+		Vector2d<T>& set(const T& _x, const T& _y) { X = _x; Y = _y; return *this; }
+		Vector2d<T>& set(const Vector2d<T>& _v2) { X = _v2.X; Y = _v2.Y; return *this; }
+
 		//! Compare two vector's X and Y.
 		/** return false if not equal or ture if equal
 		*/
@@ -85,7 +88,18 @@ namespace keikain
 		//! Rotate the point anticlockwise around a center by an amount of degrees.
 		vector2d<T>& rotateBy(f32 degree, const Vector2d<T>& center = Vector2d<T>())
 		{
+			degree *= DEGTORAD32;
+			const f32 cs = cos(degree);
+			const f32 sn = sin(degree);
 
+			X -= center.X;
+			Y -= center.Y;
+
+			set((T)(X * cs - Y * sn), (T)(X * sn + Y * cs));
+
+			X += center.X;
+			Y += center.Y;
+			return *this;
 		}
 
 		T X;
