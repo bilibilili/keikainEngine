@@ -119,7 +119,7 @@ namespace keikain
 	{
 		return a < (T)0 ? -a : a;
 	}
-	
+
 	//! Return linear interpolation of value a and value b with ratio t.
 	/** the value of t is between 0.0 and 1.0
 	*/
@@ -150,7 +150,7 @@ namespace keikain
 	{
 		return (a + tolerance >= b) && (a - tolerance <= b);
 	}
-	
+
 	//! Check if two numbers are equal in tolerance ROUNDING_ERROR_F32.
 	inline bool equals(const s32& a, const s32& b, const s32 tolerance = ROUNDING_ERROR_S32)
 	{
@@ -179,6 +179,33 @@ namespace keikain
 	{
 		return a <= tolerance;
 	}
+
+	//! s32_min s32_max s32_clamp
+	inline s32 s32_min(s32 a, s32 b)
+	{
+		const s32 mask = (a - b) >> 31;
+		return (a & mask) | (b & ~mask);
+	}
+	inline s32 s32_max(s32 a, s32 b)
+	{
+		const s32 mask = (a - b) >> 31;
+		return (b & mask) | (a & ~mask);
+	}
+	inline s32 s32_clamp(s32 value, s32 low, s32 high)
+	{
+		return s32_min(s32_max(value, low), high);
+	}
+
+	typedef union{ u32 u; s32 s; f32 f; }inttofloat;
+
+#define F32_AS_S32(f)		(*((s32 *) &(f)))
+#define F32_AS_U32(f)		(*((u32 *) &(f)))
+#define F32_AS_U32_POINTER(f)	(((u32 *) &(f)))
+
+#define F32_VALUE_0		0x00000000
+#define F32_VALUE_1		0x3f800000
+#define F32_SIGN_BIT	0x80000000U
+#define F32_EXPON_MANTISSA	0x7FFFFFFFU
 
 	union FloatIntUnion32
 	{
@@ -212,6 +239,120 @@ namespace keikain
 			return true;
 		}
 		return false;
+	}
+
+	inline u32 IR(f32 x) { inttofloat tmp; tmp.f = x; return tmp.u; }
+#define AIR(x)		(IR(x)&0x7fffffff)
+	inline f32 FR(u32 x) { inttofloat tmp; tmp.u = x; return tmp.f; }
+	inline f32 FR(s32 x) { inttofloat tmp; tmp.s = x; return tmp.f; }
+
+//! integer representation of 1.0
+#define IEEE_1_0		0x3f800000
+#define IEEE_255_0		0x437f0000
+
+#define F32_LOWER_0(n)			((n) < 0.0f)
+#define F32_LOWER_EQUAL_0(n)	((n) <= 0.0f)
+#define F32_GREATER_0(n)		((n) > 0.0f)
+#define F32_GREATER_EQUAL_0(n)	((n) >= 0.0f)
+#define F32_EQUAL_1(n)			((n) == 1.0f)
+#define F32_EQUAL_0(n)			((n) == 0.0f)
+#define F32_A_GREATER_B(a, b)	((a) > (b))
+
+#ifndef REALINLINE
+#ifdef _MSC_VER
+#define REALINLINE __forceinline
+#else
+#define REALINLINE inline
+#endif
+#endif
+
+	//! Conditional set based on mask and arithmetric shift
+	/** the result depends on condition,if condition is negative it while return b.
+	if condition is positive it while return a.
+	*/
+	REALINLINE u32 if_c_a_else_b(const s32 condition, const u32 a, const u32 b)
+	{
+		return ((-condition >> 31) & (a ^ b)) ^ b;
+	}
+
+	//! Conditional set based on mask and arithmetric shift
+	/** the result depends on condition,if condition is negative it while return b.
+	if condition is positive it while return a.
+	*/
+	REALINLINE u16 if_c_a_else_b(const s16 condition, const u16 a, const u16 b)
+	{
+		return ((-condition >> 15) & (a ^ b)) ^ b;
+	}
+
+	//! Conditional set based on mask and arithmetric shift
+	/** the result depends on condition,if condition is negative it while return 0.
+	if condition is positive it while return a.
+	*/
+	REALINLINE u32 if_c_a_else_0(const s32 condition, const u32 a)
+	{
+		return (-condition >> 31) & a;
+	}
+
+	//! have no idea
+	REALINLINE void setbit_cond(u32 &state, s32 condition, u32 mask)
+	{
+		state ^= ((-condition >> 31) ^ state) & mask;
+	}
+
+	inline f32 K_round(f32 x)
+	{
+		return floorf(x + 0.5f);
+	}
+
+	REALINLINE f32 squareroot(const f32 f)
+	{
+		return sqrtf(f);
+	}
+	REALINLINE s32 squareroot(const s32 f)
+	{
+		return sqrtf(f);
+	}
+	REALINLINE f32 reciprocal_squareroot(const f32 f)
+	{
+		return 1.f / sqrtf(f);
+	}
+	REALINLINE s32 reciprocal_squareroot(const s32 f)
+	{
+		return static_cast<s32>(reciprocal_squareroot(static_cast<f32>(f)));
+	}
+	REALINLINE f32 reciprocal(const f32 f)
+	{
+		return 1.f / f;
+	}
+	REALINLINE f32 reciprocal_approxim(const f32 f)
+	{
+		return 1.f / f;
+	}
+
+	REALINLINE s32 floor32(f32 x)
+	{
+		return (s32)floorf(x);
+	}
+	REALINLINE s32 ceil32(f32 x)
+	{
+		return (s32)ceilf(x);
+	}
+	REALINLINE s32 round32(f32 x)
+	{
+		return (s32)K_round(x);
+	}
+
+	inline f32 f32_max3(const f32 a, const f32 b, const f32 c)
+	{
+		return (a > b) && (a > c) ? a : ((b > c) ? b : c);
+	}
+	inline f32 f32_min3(const f32 a, const f32 b, const f32 c)
+	{
+		return (a < b) && (a < c) ? a : ((b < c) ? b : c);
+	}
+	inline f32 fract(f32 x)
+	{
+		return x - floorf(x);
 	}
 }
 

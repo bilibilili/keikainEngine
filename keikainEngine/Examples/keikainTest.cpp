@@ -7,14 +7,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../Core/Keikain.h"
+#include "../Math/KMath.h"
+#include "../PrimativeElements/Vector2d.h"
 
 int main()
 {
-	keikain::s16 aa = 12;
-	keikain::u8 a = 2;
-	keikain::s32 i;
-	printf("%d\n", a);
-	printf("%d\n", (i >> 31) != 0);
-	std::cout << a << " : " << "keikain" << std::endl;
+	keikain::vector2df vi(461, 89);
+	printf("%d-------%d\n", vi.X, vi.Y);
+	vi.normalize();
+	printf("%f-------%f\n", vi.X, vi.Y);
+	printf("%f\n", vi[3]);
 	return 0;
 }
