@@ -270,6 +270,7 @@ namespace keikain
 
 	//! Typedef for f32 2d vector.
 	typedef Vector2d<f32> vector2df;
+	//! Typedef for s32 2d vector.
 	typedef Vector2d<s32> vector2di;
 }
 

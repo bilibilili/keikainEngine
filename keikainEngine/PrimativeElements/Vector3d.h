@@ -19,10 +19,10 @@ namespace keikain
 		Vector3d(const T& _n = 0) :
 			X(_n), Y(_n), Z(_n) {}
 		Vector3d(const T& _x = 0, const T& _y = 0, const T& _z = 0) :
-			X(_x), Y(_y), Z(_Z) {}
+			X(_x), Y(_y), Z(_z) {}
 		Vector3d(const Vector3d<T>& _v3) :
 			X(_v3.X), Y(_v3.Y), Z(_v3.Z) {}
-		Vector3d<T> operator() const
+		Vector3d<T> operator-() const
 		{
 			return Vector3d<T>(-X, -Y, -Z);
 		}
@@ -162,10 +162,67 @@ namespace keikain
 		Vector3d<T>& set(const T& _x, const T& _y, const T& _z) { X = _x; Y = _y; Z = _z; return *this; }
 		Vector3d<T>& set(const Vector3d<T>& _v3) { X = _v3.X; Y = _v3.Y; Z = _v3.Z; }
 
+		//! Get length from origin.
+		T getLength() const
+		{
+			return squareroot(X * X + Y * Y + Z * Z);
+		}
+
+		//! Get squared length of the vector.
+		T getSquarelength() const
+		{
+			return X * X + Y * Y + Z * Z;
+		}
+
+		//! Get length from specific point.
+		T getDistanceFrom(const Vector3d<T>& _dist) const
+		{
+			return squareroot(X * _dist.X + Y * _dist.Y + Z * _dist.Z);
+		}
+
+		T getSquareDistanceFrom(const Vector3d<T>& _dist) const
+		{
+			return X * _dist.X + Y * _dist.Y + Z * _dist.Z;
+		}
+
+		Vector3d<T>& normalize()
+		{
+			T& length = X * X + Y * Y + Z * Z;
+			if (length == 0)
+			{
+				return *this;
+			}
+			length = reciprocal_squareroot(length);
+			X = (T)(X * length);
+			Y = (T)(Y * length);
+			Z = (T)(Z * length);
+
+			return *this;
+		}
+
+		//! invert vector.
+		Vector3d<T>& invert()
+		{
+			X *= -1;
+			Y *= -1;
+			Z *= -1;
+
+			return *this;
+		}
+
+		//! Get dot product.
+		T dotProuduct(const Vector3d<T>& _v3) const
+		{
+			return X * _v3.X + Y * _v3.Y + Z * _v3.Z;
+		}
+
 		T X;
 		T Y;
 		T Z;
 	};
+
+	typedef Vector3d<f32> vector3df;
+	typedef Vector3d<s32> vector3di;
 }
 
 #endif
