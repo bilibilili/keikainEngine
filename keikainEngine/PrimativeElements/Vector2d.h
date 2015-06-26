@@ -84,7 +84,7 @@ namespace keikain
 		//! Get the distance from vector2d )v2.
 		T getDistanceFrom(const Vector2d<T>& _v2) const
 		{
-			return K_sqrt((X - _v2.X) * (X - _v2.X), (Y - _v2.Y) * (Y - _v2.Y));
+			return kkmath::K_sqrt((X - _v2.X) * (X - _v2.X), (Y - _v2.Y) * (Y - _v2.Y));
 		}
 
 		//! Get the square distance from the origin of the coordinate. 
@@ -96,15 +96,15 @@ namespace keikain
 		//! Get the distance from the origin of the coordinate.
 		T getDistanceFromOrigin() const
 		{
-			return K_fabs(getSquareDistanceFromOrigin());
+			return kkmath::K_fabs(getSquareDistanceFromOrigin());
 		}
 
 		//! Rotate the point anticlockwise around a center by an amount of degrees.
 		Vector2d<T>& rotateBy(f32 degree, const Vector2d<T>& center = Vector2d<T>())
 		{
 			degree *= DEGTORAD32;
-			const f32 cs = K_cos(degree);
-			const f32 sn = K_sin(degree);
+			const f32 cs = kkmath::K_cos(degree);
+			const f32 sn = kkmath::K_sin(degree);
 
 			X -= center.X;
 			Y -= center.Y;
@@ -124,7 +124,7 @@ namespace keikain
 			{
 				return *this;
 			}
-			length = reciprocal_squareroot(length);
+			length = kkmath::reciprocal_squareroot(length);
 			X = (T)(X * length);
 			Y = (T)(Y * length);
 			return *this;
@@ -159,7 +159,7 @@ namespace keikain
 				}
 				else
 				{
-					return 180.0f + atan((f32)Y / -(f32)X) * RADTODEG;
+					return 180.0f + atan((f32)Y / -(f32)X) * kkmath::RADTODEG;
 				}
 			}
 		}
@@ -176,8 +176,8 @@ namespace keikain
 				return Y < 0 ? 90 : 270;
 			}
 
-			const f32 tmp = K_clamp(Y / K_sqrt(X * X + Y * Y), -1, 1.0);
-			const f32 angle = atan(squareroot(1 - tmp * tmp) / tmp) * RADTODEG;
+			const f32 tmp = kkmath::K_clamp(Y / kkmath::K_sqrt(X * X + Y * Y), -1, 1.0);
+			const f32 angle = atan(kkmath::squareroot(1 - tmp * tmp) / tmp) * kkmath::RADTODEG;
 
 			if (X > 0 && Y > 0)
 			{
@@ -209,7 +209,7 @@ namespace keikain
 				return 90.0;
 			}
 
-			tmp = tmp / squareroot((f32)((X * X + Y * Y) * (_v2.X * _v2.X + _v2.Y * _v2.Y)));
+			tmp = tmp / kkmath::squareroot((f32)((X * X + Y * Y) * (_v2.X * _v2.X + _v2.Y * _v2.Y)));
 			if (tmp < 0)
 			{
 				tmp = -tmp;
@@ -219,7 +219,7 @@ namespace keikain
 				tmp = 1.0;
 			}
 
-			return atan(K_sqrt(1 - tmp * tmp) * RADTODEG);
+			return atan(kkmath::K_sqrt(1 - tmp * tmp) * kkmath::RADTODEG);
 		}
 
 		//! Return if this vector interpreted between two other points.

@@ -112,33 +112,33 @@ namespace keikain
 		*/
 		bool operator<(const Vector3d<T>& _v3) const
 		{
-			return (X < _v3.X && !equals(X, _v3.X)) ||
-				(equals(X, _v3.X) && Y > _v3.Y && !equals(Y, _v3.Y)) ||
-				(equals(X, _v3.X) && equals(Y, _v3.Y) && Z < _v3.Z && !equals(Z, _v3.Z));
+			return (X < _v3.X && !kkmath::equals(X, _v3.X)) ||
+				(kkmath::equals(X, _v3.X) && Y > _v3.Y && !kkmath::equals(Y, _v3.Y)) ||
+				(kkmath::equals(X, _v3.X) && kkmath::equals(Y, _v3.Y) && Z < _v3.Z && !kkmath::equals(Z, _v3.Z));
 		}
 
 		//! Sort in order X, Y, Z.
 		bool operator<=(const Vector3d<T>& _v3) const
 		{
-			return (X <= _v3.X || equals(X, _v3.X)) ||
-				(equals(X, _v3.X) && Y <= _v3.Y || equals(Y, _v3.Y)) ||
-				(equals(X, _v3.X) && equals(Y, _v3.Y) && Z <= _v3.Z || equals(Z, _v3.Z));
+			return (X <= _v3.X || kkmath::equals(X, _v3.X)) ||
+				(kkmath::equals(X, _v3.X) && Y <= _v3.Y || kkmath::equals(Y, _v3.Y)) ||
+				(kkmath::equals(X, _v3.X) && kkmath::equals(Y, _v3.Y) && Z <= _v3.Z || kkmath::equals(Z, _v3.Z));
 		}
 
 		//! Set in order X, Y, Z.
 		bool operator>(const Vector3d<T>& _v3) const
 		{
-			return (X > _v3.X && !equals(X, _v3.X)) ||
-				(equals(X, _v3.X) && Y > _v3.Y && !equals(Y, _v3.Y)) ||
-				(equals(X, _v3.X) && equals(Y, _v3.Y) && Z > _v3.Z && !equals(Z, _v3.Z));
+			return (X > _v3.X && !kkmath::equals(X, _v3.X)) ||
+				(kkmath::equals(X, _v3.X) && Y > _v3.Y && !kkmath::equals(Y, _v3.Y)) ||
+				(kkmath::equals(X, _v3.X) && kkmath::equals(Y, _v3.Y) && Z > _v3.Z && !kkmath::equals(Z, _v3.Z));
 		}
 
 		//! Sort in order X, Y, Z.
 		bool operator>=(const Vector3d<T>& _v3) const
 		{
-			return (X >= _v3.X || equals(X, _v3.X)) ||
-				(equals(X, _v3.X) && Y >= _v3.Y || equals(Y, _v3.Y)) ||
-				(equals(X, _v3.X) && equals(Y, _v3.Y) && Z >= _v3.Z || equals(Z, _v3.Z))
+			return (X >= _v3.X || kkmath::equals(X, _v3.X)) ||
+				(kkmath::equals(X, _v3.X) && Y >= _v3.Y || kkmath::equals(Y, _v3.Y)) ||
+				(kkmath::equals(X, _v3.X) && kkmath::equals(Y, _v3.Y) && Z >= _v3.Z || kkmath::equals(Z, _v3.Z))
 		}
 
 		//! Sort in order X, Y, Z.
@@ -154,30 +154,36 @@ namespace keikain
 		}
 
 		//! Return if vector equals the other one.
-		bool equals(const Vector3d<T>& _v3, const T tolerance = (T)ROUNDING_ERROR_F32) const
+		bool equals(const Vector3d<T>& _v3, const T tolerance = (T)kkmath::ROUNDING_ERROR_F32) const
 		{
-			return equals(X, _v3.X, tolerance) && equals(Y, _v3.Y, tolerance) && equals(Z, _v3.Z, tolerance);
+			return kkmath::equals(X, _v3.X, tolerance) && kkmath::equals(Y, _v3.Y, tolerance) && kkmath::equals(Z, _v3.Z, tolerance);
 		}
 
 		Vector3d<T>& set(const T& _x, const T& _y, const T& _z) { X = _x; Y = _y; Z = _z; return *this; }
 		Vector3d<T>& set(const Vector3d<T>& _v3) { X = _v3.X; Y = _v3.Y; Z = _v3.Z; }
 
 		//! Get length from origin.
+		/** get the length from origin point,sqrted
+		*/
 		T getLength() const
 		{
-			return squareroot(X * X + Y * Y + Z * Z);
+			return kkmath::squareroot(X * X + Y * Y + Z * Z);
 		}
 
 		//! Get squared length of the vector.
+		/** get the length from origin point,but not sqrt
+		*/
 		T getSquarelength() const
 		{
 			return X * X + Y * Y + Z * Z;
 		}
 
 		//! Get length from specific point.
+		/** return the distance between two points
+		*/
 		T getDistanceFrom(const Vector3d<T>& _dist) const
 		{
-			return squareroot(X * _dist.X + Y * _dist.Y + Z * _dist.Z);
+			return kkmath::squareroot(X * _dist.X + Y * _dist.Y + Z * _dist.Z);
 		}
 
 		T getSquareDistanceFrom(const Vector3d<T>& _dist) const
@@ -192,7 +198,7 @@ namespace keikain
 			{
 				return *this;
 			}
-			length = reciprocal_squareroot(length);
+			length = kkmath::reciprocal_squareroot(length);
 			X = (T)(X * length);
 			Y = (T)(Y * length);
 			Z = (T)(Z * length);
@@ -214,6 +220,34 @@ namespace keikain
 		T dotProuduct(const Vector3d<T>& _v3) const
 		{
 			return X * _v3.X + Y * _v3.Y + Z * _v3.Z;
+		}
+
+		//! Rotates the vector by a specified number of degrees.
+		/** rotates the vector by a specified number of degrees around the Y axis and
+		the specified center.
+		*/
+		void rotateXZBy(f32 degrees, const Vector3d<T>& center = Vector3d<T>())
+		{
+			degrees *= DEGTORAD;
+			f32 cs = kkmath::K_cos(degrees);
+			f32 sn = kkmath::K_sin(degrees);
+
+			// here we set the world coord to local coord.
+			X -= center.X;
+			Z -= center.Z;
+			set((T)(X * cs - Z * sn), Y, (T)(X *sn + Z * cs));
+			// here we set the local coord to world coord.
+			X += center.X;
+			Z += center.Z;
+		}
+
+		//! Rotates the vector by a specified number of degrees.
+		/** rotates the vector by a specified number of degrees around the Y axis and
+		the specified center.
+		*/
+		void rotateXYBy(f32 degrees, const Vector3d<T>& center = Vector3d<T>())
+		{
+
 		}
 
 		T X;

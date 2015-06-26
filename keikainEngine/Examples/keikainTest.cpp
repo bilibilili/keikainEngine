@@ -15,11 +15,7 @@ int main()
 {
 	keikain::vector2df vi(461, 89);
 	keikain::vector3df v3(2, 2, 1);
-	printf("%d-------%d\n", vi.X, vi.Y);
-	vi.normalize();
-	printf("%f-------%f\n", vi.X, vi.Y);
-	printf("%f\n", vi[1]);
-
-	printf("%f\n",  v3.getLength());
+	keikain::vector3df v3i(2, 2, 2);
+	printf("%d\n", v3 > v3i);
 	return 0;
 }
