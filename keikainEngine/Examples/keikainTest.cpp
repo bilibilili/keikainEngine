@@ -14,8 +14,9 @@
 int main()
 {
 	keikain::vector2df vi(461, 89);
-	keikain::vector3df v3(2, 2, 1);
+	keikain::vector3df v3(21, 32, 13);
 	keikain::vector3df v3i(2, 2, 2);
-	printf("%d\n", v3 > v3i);
+	keikain::vector3df v3f(12, 71, 20);
+	printf("%f\n", (v3.getInterpolatedQuadratic(v3i, v3f, 0.25f)).X);
 	return 0;
 }

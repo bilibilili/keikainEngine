@@ -240,7 +240,7 @@ namespace keikain
 		*/
 		Vector2d<T>& getInterpolated(const Vector2d<T>& other, f32 d) const
 		{
-			f32 inv 1.0f - d;
+			f32 inv = 1.0f - d;
 			return Vector2d<T>((T)(other.X * inv + X * d), (T)(other.Y * inv + Y * d));
 		}
 
