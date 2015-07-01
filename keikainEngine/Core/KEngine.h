@@ -75,7 +75,7 @@ namespace keikain
 		//! Get the engine version.
 		/** return the version string about engine
 		*/
-		virtual c8* getVersion() const = 0;
+		virtual const c8* getVersion() const = 0;
 	private:
 
 	};

@@ -22,9 +22,6 @@
     <Filter Include="源文件\Examples">
       <UniqueIdentifier>{5aa1dcf5-4c15-49dd-8ac8-97dfefb60933}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\Module">
-      <UniqueIdentifier>{7e64395d-3310-47c0-9265-c79178fd2421}</UniqueIdentifier>
-    </Filter>
     <Filter Include="头文件\PrimativeElements">
       <UniqueIdentifier>{ef24bf35-9369-4b8e-96ae-6a72ea8e91d9}</UniqueIdentifier>
     </Filter>
@@ -33,6 +30,9 @@
     </Filter>
     <Filter Include="头文件\Math">
       <UniqueIdentifier>{abcc95ee-e14d-4d60-b554-351b208f59b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Engine">
+      <UniqueIdentifier>{7e64395d-3310-47c0-9265-c79178fd2421}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -99,10 +99,16 @@
     <ClInclude Include="Math\KMath.h">
       <Filter>头文件\Math</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\KEngineStub.h">
+      <Filter>源文件\Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Examples\keikainTest.cpp">
       <Filter>源文件\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\KEngineStub.cpp">
+      <Filter>源文件\Engine</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
