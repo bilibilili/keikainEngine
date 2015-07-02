@@ -93,7 +93,10 @@
     <ClInclude Include="Math\KMath.h">
       <Filter>头文件\Math</Filter>
     </ClInclude>
-    <ClInclude Include="CoreModule\KKEngineStub.h">
+    <ClInclude Include="PrimativeElements\KColor.h">
+      <Filter>头文件\PrimativeElements</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\KEngineStub.h">
       <Filter>源文件\Engine</Filter>
     </ClInclude>
     <ClInclude Include="PrimativeElements\Line2d.h">
@@ -105,18 +108,15 @@
     <ClInclude Include="Core\KVideoDriver.h">
       <Filter>头文件\Core</Filter>
     </ClInclude>
-    <ClInclude Include="PrimativeElements\KColor.h">
-      <Filter>头文件\PrimativeElements</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Examples\keikainTest.cpp">
       <Filter>源文件\Examples</Filter>
     </ClCompile>
-    <ClCompile Include="CoreModule\Keikain.cpp">
+    <ClCompile Include="Engine\Keikain.cpp">
       <Filter>源文件\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="CoreModule\KKEngineStub.cpp">
+    <ClCompile Include="Engine\KEngineStub.cpp">
       <Filter>源文件\Engine</Filter>
     </ClCompile>
   </ItemGroup>
