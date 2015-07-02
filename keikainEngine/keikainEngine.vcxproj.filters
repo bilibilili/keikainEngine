@@ -105,8 +105,8 @@
     <ClInclude Include="Core\KVideoDriver.h">
       <Filter>头文件\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Core\KColor.h">
-      <Filter>头文件\Core</Filter>
+    <ClInclude Include="PrimativeElements\KColor.h">
+      <Filter>头文件\PrimativeElements</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

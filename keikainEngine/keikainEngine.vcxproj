@@ -12,7 +12,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CoreModule\KKEngineStub.h" />
-    <ClInclude Include="Core\KColor.h" />
     <ClInclude Include="Core\KCreateEngineParameters.h" />
     <ClInclude Include="Core\KCursorManager.h" />
     <ClInclude Include="Core\Keikain.h" />
@@ -28,6 +27,7 @@
     <ClInclude Include="Math\KMath.h" />
     <ClInclude Include="PrimativeElements\Dimension2d.h" />
     <ClInclude Include="PrimativeElements\Dimension3d.h" />
+    <ClInclude Include="PrimativeElements\KColor.h" />
     <ClInclude Include="PrimativeElements\Line2d.h" />
     <ClInclude Include="PrimativeElements\Line3d.h" />
     <ClInclude Include="PrimativeElements\Vector2d.h" />
