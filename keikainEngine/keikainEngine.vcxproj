@@ -11,6 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CoreModule\KKEngineStub.h" />
+    <ClInclude Include="Core\KColor.h" />
     <ClInclude Include="Core\KCreateEngineParameters.h" />
     <ClInclude Include="Core\KCursorManager.h" />
     <ClInclude Include="Core\Keikain.h" />
@@ -22,11 +24,12 @@
     <ClInclude Include="Core\KSceneManager.h" />
     <ClInclude Include="Core\KScript.h" />
     <ClInclude Include="Core\KTimer.h" />
+    <ClInclude Include="Core\KVideoDriver.h" />
     <ClInclude Include="Math\KMath.h" />
     <ClInclude Include="PrimativeElements\Dimension2d.h" />
     <ClInclude Include="PrimativeElements\Dimension3d.h" />
-    <ClInclude Include="PrimativeElements\Ray2d.h" />
-    <ClInclude Include="PrimativeElements\Ray3d.h" />
+    <ClInclude Include="PrimativeElements\Line2d.h" />
+    <ClInclude Include="PrimativeElements\Line3d.h" />
     <ClInclude Include="PrimativeElements\Vector2d.h" />
     <ClInclude Include="PrimativeElements\Vector3d.h" />
     <ClInclude Include="Utilities\KCompileConfig.h" />
@@ -34,6 +37,8 @@
     <ClInclude Include="Utilities\KTypes.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CoreModule\Keikain.cpp" />
+    <ClCompile Include="CoreModule\KKEngineStub.cpp" />
     <ClCompile Include="Examples\keikainTest.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

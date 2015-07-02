@@ -3,8 +3,8 @@
 // It is inspired by irrlicht.
 // For conditions of distribution and use, see copyright notice in Keikain.h
 
-#ifndef __KEIKAIN_RAY3D_H__
-#define __KEIKAIN_RAY3D_H__
+#ifndef __KEIKAIN_LINE3D_H__
+#define __KEIKAIN_LINE3D_H__
 
 #include "../Math/KMath.h"
 #include "Vector3d.h"
@@ -12,14 +12,14 @@
 namespace keikain
 {
 	template <class T>
-	class Ray3d
+	class Line3d
 	{
 	public:
-		Ray3d(const Ray3d<T>& _r3) :
-			start(_r3.start), end(_r3.end) {}
-		Ray3d(const Vector3d<T>& _s, const Vector3d<T>& _e) :
+		Line3d(const Line3d<T>& _l3) :
+			start(_l3.start), end(_l3.end) {}
+		Line3d(const Vector3d<T>& _s, const Vector3d<T>& _e) :
 			start(_s), end(_e) {}
-		Ray3d(const T& _sX = 0, const T& _sY = 0, const T& _sZ = 0, const T& _eX = 1, const T& _eY = 1, const T& _eZ = 1) :
+		Line3d(const T& _sX = 0, const T& _sY = 0, const T& _sZ = 0, const T& _eX = 1, const T& _eY = 1, const T& _eZ = 1) :
 			start(_sX, _sY, _sZ), end(_eX, _eY, _eZ) {}
 
 		//! Get the length.
@@ -38,8 +38,8 @@ namespace keikain
 		Vector3d<T> end;
 	};
 
-	typedef Ray3d<f32> ray3df;
-	typedef Ray3d<s32> ray3di;
+	typedef Line3d<f32> line3df;
+	typedef Line3d<s32> line3di;
 }
 
 #endif

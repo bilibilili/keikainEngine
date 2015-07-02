@@ -14,8 +14,6 @@ namespace keikain
 	class Vector3d
 	{
 	public:
-		Vector3d() :
-			X(0), Y(0), Z(0) {}
 		Vector3d(const T& _n = 0) :
 			X(_n), Y(_n), Z(_n) {}
 		Vector3d(const T& _x = 0, const T& _y = 0, const T& _z = 0) :
