@@ -10,17 +10,17 @@
 #include "../Math/KMath.h"
 #include "../PrimativeElements/Vector2d.h"
 #include "../PrimativeElements/Vector3d.h"
-#include "../PrimativeElements/Line2d.h"
-#include "../PrimativeElements/Line3d.h"
+#include "../PrimativeElements/Ray2d.h"
+#include "../PrimativeElements/Ray3d.h"
 
 int main()
 {
-	keikain::line2df ray;
+	keikain::ray2df ray;
 	printf("X: %f-----Y: %f\n", ray.start.X, ray.end.Y);
 	printf("X: %f-----Y: %f\n", ray.getMiddlePoint().X, ray.getMiddlePoint().Y);
 	printf("%f\n", ray.getLength());
 
-	keikain::line3df ray3;
+	keikain::ray3df ray3;
 	printf("Length:%f\n", ray3.getLength());
 
 	printf("X: %f---Y: %f---Z: %f\n", ray3.getMiddlePoint().X, ray3.getMiddlePoint().Y, ray3.getMiddlePoint().Z);

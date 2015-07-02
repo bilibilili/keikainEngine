@@ -15,45 +15,46 @@ namespace keikain
 	{
 	public:
 		KCreateEngineParameters() :
-			driverType(K_OPENGL),
-			screenSize(800, 450),
-			colorDepth(16),
-			ZBuffer(16),
-			fullScreen(false),
-			stencilBuffer(false),
-			doubleBuffer(true) {}
+			DriverType(K_OPENGL),
+			WindowSize(800, 450),
+			Bits(16),
+			ZBufferBits(16),
+			FullScreen(false),
+			StencilBuffer(false),
+			DoubleBuffer(true) {}
 
-		KCreateEngineParameters(const KCreateEngineParameters& _param)
+		KCreateEngineParameters(const KCreateEngineParameters& _params)
 		{
-			*this = _param;
+			*this = _params;
 		}
 
-		KCreateEngineParameters& operator=(const KCreateEngineParameters& _param)
-		{
-			driverType = _param.driverType;
-			screenSize = _param.screenSize;
-			colorDepth = _param.colorDepth;
-			ZBuffer = _param.ZBuffer;
-			fullScreen = _param.fullScreen;
-			stencilBuffer = _param.stencilBuffer;
-			doubleBuffer = _param.doubleBuffer;
-			return *this;
-		}
+		//! Type of the video device.
+		/** this setting decides the engine used by the device
+		K_DIRECT3DX is only available on win32 platform
+		K_OPENGL available on linux, bsd
+		*/
+		KDRIVER_TYPE DriverType;
 
-		//! Type of video driver.
-		KDRIVER_TYPE driverType;
-		//! Size of screen.
-		vector2di screenSize;
-		//! Minimum per pixel of the color buffer.
-		u8 colorDepth;
-		//! Minimum per pixel of the depth buffer.
-		u8 ZBuffer;
-		//! if the engine run in fullscreen.
-		bool fullScreen;
-		//! if stencil buffer should be enable.
-		bool stencilBuffer;
+		//! Size of the window.
+		vector2di WindowSize;
+
+		//! Minimum Bits per pixel of the color buffer.
+		u8 Bits;
+		
+		//! Minimum Bits per pixel of the depth buffer.
+		u8 ZBufferBits;
+
+		//! Set the screen full screen or windowed screen.
+		bool FullScreen;
+
+		//! Specifies if the stencil buffer should be enabled.
+		bool StencilBuffer;
+
 		//! whether use double buffer.
-		bool doubleBuffer;
+		bool DoubleBuffer;
+
+		//! 
+
 	};
 }
 

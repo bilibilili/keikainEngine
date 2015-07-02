@@ -18,10 +18,13 @@ namespace keikain
 	class Vector2d
 	{
 	public:
+		Vector2d() :
+			X(0), Y(0) {}
 		Vector2d(const T& _x = 0, const T& _y = 0) :
 			X(_x), Y(_y) {}
 		Vector2d(const Vector2d& _v2) :
 			X(_v2.X), Y(_v2.Y) {}
+
 		Vector2d<T> operator-() const { return Vector2d<T>(-X, -Y); }
 		Vector2d<T>& operator=(const Vector2d<T>& _v2) { X = _v2.X; Y = _v2.Y; return *this; }
 		Vector2d<T> operator+(const Vector2d<T>& _v2) const { return Vector2d<T>(X + _v2.X, Y + _v2.Y); }
