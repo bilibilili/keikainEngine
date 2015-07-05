@@ -196,7 +196,7 @@ namespace keikain
 
 		Vector3d<T>& normalize()
 		{
-			T& length = X * X + Y * Y + Z * Z;
+			f32 length = X * X + Y * Y + Z * Z;
 			if (length == 0)
 			{
 				return *this;

@@ -15,12 +15,17 @@
 #include "../PrimativeElements/Plane3d.h"
 #include "../PrimativeElements/Matrix4.h"
 #include "../PrimativeElements/Dimension2d.h"
+#include "../Transform/KQuaternion.h"
+#include "../PrimativeElements/Rect.h"
 
 int main()
 {
 	keikain::dimension2df d2d(2.324f, 9.43f);
 	keikain::dimension2df d2d1(keikain::vector2df(34.12f, 432.2f));
 	printf("%f -- %f\n", d2d.Width, d2d.Height);
+
+	keikain::KQuaternion qua(23, 98, 43);
+	printf("%f -- %f --- %f\n", qua.X, qua.Y, qua.Z);
 
 	return 0;
 }
