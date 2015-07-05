@@ -8,6 +8,7 @@
 
 #include "../Utilities/KTypes.h"
 #include "../Math/KMath.h"
+#include "Dimension2d.h"
 
 //! Vector2d describ a point in 2d graph.
 /** 
@@ -271,6 +272,21 @@ namespace keikain
 	typedef Vector2d<f32> vector2df;
 	//! Typedef for s32 2d vector.
 	typedef Vector2d<s32> vector2di;
+
+	template <class S, class T>
+	Vector2d<T> operator*(const S _scalar, const Vector2d<T>& _vect)
+	{
+		return _vect * _scalar;
+	}
+
+	template <class T>
+	Dimension2d<T>::Dimension2d(const Vector2d<T>& _vect) : Width(_vect.X), Height(_vect.Y) {}
+
+	template <class T>
+	bool Dimension2d<T>::operator==(const Vector2d<T>& _vect) const
+	{
+		return Width == _vect.X && Height == _vect.Y;
+	}
 }
 
 #endif

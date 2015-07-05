@@ -4,7 +4,7 @@
 // For conditions of distribution and use, see copyright notice in Keikain.h
 
 #ifndef __KEIKAIN_KENGINE_H__
-#define __KEIKAIN_KENIGNE_H__
+#define __KEIKAIN_KENGINE_H__
 
 #include "KReferenceCounted.h"
 #include "KRenderManager.h" 

@@ -12,17 +12,15 @@
 #include "../PrimativeElements/Vector3d.h"
 #include "../PrimativeElements/Line2d.h"
 #include "../PrimativeElements/Line3d.h"
+#include "../PrimativeElements/Plane3d.h"
+#include "../PrimativeElements/Matrix4.h"
+#include "../PrimativeElements/Dimension2d.h"
 
 int main()
 {
-	keikain::line2df ray;
-	printf("X: %f-----Y: %f\n", ray.start.X, ray.end.Y);
-	printf("X: %f-----Y: %f\n", ray.getMiddlePoint().X, ray.getMiddlePoint().Y);
-	printf("%f\n", ray.getLength());
+	keikain::dimension2df d2d(2.324f, 9.43f);
+	keikain::dimension2df d2d1(keikain::vector2df(34.12f, 432.2f));
+	printf("%f -- %f\n", d2d.Width, d2d.Height);
 
-	keikain::line3df ray3;
-	printf("Length:%f\n", ray3.getLength());
-
-	printf("X: %f---Y: %f---Z: %f\n", ray3.getMiddlePoint().X, ray3.getMiddlePoint().Y, ray3.getMiddlePoint().Z);
 	return 0;
 }

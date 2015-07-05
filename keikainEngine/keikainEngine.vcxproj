@@ -11,6 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Collision\aabbox3d.h" />
+    <ClInclude Include="Core\KAttributes.h" />
     <ClInclude Include="Core\KCreateEngineParameters.h" />
     <ClInclude Include="Core\KCursorManager.h" />
     <ClInclude Include="Core\Keikain.h" />
@@ -26,13 +28,18 @@
     <ClInclude Include="Engine\KEngineStub.h" />
     <ClInclude Include="Math\KMath.h" />
     <ClInclude Include="PrimativeElements\Dimension2d.h" />
-    <ClInclude Include="PrimativeElements\Dimension3d.h" />
     <ClInclude Include="PrimativeElements\KColor.h" />
     <ClInclude Include="PrimativeElements\Line2d.h" />
     <ClInclude Include="PrimativeElements\Line3d.h" />
+    <ClInclude Include="PrimativeElements\Plane3d.h" />
+    <ClInclude Include="PrimativeElements\Matrix4.h" />
+    <ClInclude Include="PrimativeElements\Position2d.h" />
+    <ClInclude Include="PrimativeElements\Rect.h" />
     <ClInclude Include="PrimativeElements\Vector2d.h" />
     <ClInclude Include="PrimativeElements\Vector3d.h" />
+    <ClInclude Include="Transform\KQuaternion.h" />
     <ClInclude Include="Utilities\KCompileConfig.h" />
+    <ClInclude Include="Utilities\KDriverFeatures.h" />
     <ClInclude Include="Utilities\KDriverType.h" />
     <ClInclude Include="Utilities\KTypes.h" />
   </ItemGroup>

@@ -34,6 +34,9 @@
     <Filter Include="源文件\Engine">
       <UniqueIdentifier>{7e64395d-3310-47c0-9265-c79178fd2421}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Transform">
+      <UniqueIdentifier>{4295b69d-2617-442f-8d8d-11e75bce0e66}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utilities\KCompileConfig.h">
@@ -87,9 +90,6 @@
     <ClInclude Include="PrimativeElements\Dimension2d.h">
       <Filter>头文件\PrimativeElements</Filter>
     </ClInclude>
-    <ClInclude Include="PrimativeElements\Dimension3d.h">
-      <Filter>头文件\PrimativeElements</Filter>
-    </ClInclude>
     <ClInclude Include="Math\KMath.h">
       <Filter>头文件\Math</Filter>
     </ClInclude>
@@ -107,6 +107,30 @@
     </ClInclude>
     <ClInclude Include="Core\KVideoDriver.h">
       <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities\KDriverFeatures.h">
+      <Filter>头文件\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\KAttributes.h">
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="PrimativeElements\Plane3d.h">
+      <Filter>头文件\PrimativeElements</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision\aabbox3d.h">
+      <Filter>头文件\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="PrimativeElements\Matrix4.h">
+      <Filter>头文件\PrimativeElements</Filter>
+    </ClInclude>
+    <ClInclude Include="PrimativeElements\Rect.h">
+      <Filter>头文件\PrimativeElements</Filter>
+    </ClInclude>
+    <ClInclude Include="PrimativeElements\Position2d.h">
+      <Filter>头文件\PrimativeElements</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform\KQuaternion.h">
+      <Filter>头文件\Transform</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

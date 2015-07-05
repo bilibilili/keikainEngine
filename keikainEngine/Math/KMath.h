@@ -90,29 +90,29 @@ namespace keikain
 
 		//! Return minimum of two numbers.
 		template<class T>
-		inline T& K_min(const T& a, const T& b)
+		inline const T& K_min(const T& a, const T& b)
 		{
 			return (a < b ? a : b);
 		}
 		//! Return minimum of threee numbers.
 		template <class T>
-		inline T& K_min(const T& a, const T& b, const T& c)
+		inline const T& K_min(const T& a, const T& b, const T& c)
 		{
 			return (a < b) && (a < c) ? a : ((b < c) ? b : c);
 		}
 
 		//! Return the maximum of two numbers.
 		template <class T>
-		inline T& K_max(const T& a, const T& b)
+		inline const T& K_max(const T& a, const T& b)
 		{
 			return a > b ? a : b;
 		}
 
 		//! Return the maximum of three numbers.
 		template <class T>
-		inline T& K_max(const T& a, const T& b, const T& c)
+		inline const T& K_max(const T& a, const T& b, const T& c)
 		{
-			return (a > b) && 7 (a > c) ? a : ((b > c) ? b : c);
+			return a < b ? K_max(b, c) : K_max(a, c);
 		}
 
 		//! Return abs.

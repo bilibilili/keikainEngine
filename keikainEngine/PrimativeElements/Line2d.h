@@ -17,7 +17,7 @@ namespace keikain
 	public:
 		Line2d(const Vector2d<T>& _s, const Vector2d<T>& _e) :
 			start(_s), end(_e) {}
-		Line2d(const Ray2d<T>& _r2) :
+		Line2d(const Line2d<T>& _r2) :
 			start(_r2.start), end(_r2.end) {}
 		Line2d(const T& _sX = 0, const T& _sY = 0, const T& _eX = 1, const T& _eY = 1) :
 			start(_sX, _sY), end(_eX, _eY) {}

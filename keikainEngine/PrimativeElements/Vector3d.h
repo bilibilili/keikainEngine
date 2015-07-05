@@ -14,8 +14,6 @@ namespace keikain
 	class Vector3d
 	{
 	public:
-		Vector3d(const T& _n = 0) :
-			X(_n), Y(_n), Z(_n) {}
 		Vector3d(const T& _x = 0, const T& _y = 0, const T& _z = 0) :
 			X(_x), Y(_y), Z(_z) {}
 		Vector3d(const Vector3d<T>& _v3) :
@@ -189,6 +187,13 @@ namespace keikain
 			return X * _dist.X + Y * _dist.Y + Z * _dist.Z;
 		}
 
+		//! Return if this vector interpreted as a point is on a line between two other points.
+		bool isBetweenPoints(const Vector3d<T>& _begin, const Vector3d<T>& _end) const
+		{
+			const T f = (_end - _begin).getSquareLength();
+			return getSquareDistanceFrom(_begin) <= f && getSquareDistanceFrom(_end) <= f;
+		}
+
 		Vector3d<T>& normalize()
 		{
 			T& length = X * X + Y * Y + Z * Z;
@@ -215,9 +220,15 @@ namespace keikain
 		}
 
 		//! Get dot product.
-		T dotProuduct(const Vector3d<T>& _v3) const
+		T dotProduct(const Vector3d<T>& _v3) const
 		{
 			return X * _v3.X + Y * _v3.Y + Z * _v3.Z;
+		}
+
+		//! Get cross product.
+		Vector3d<T> crossProduct(const Vector3d<T>& _p) const
+		{
+			return Vector3d<T>(Y * _p.Z - Z * _p.Y, Z * _p.X - X * _p.Z, X * _p.Y - Y * _p.X);
 		}
 
 		//! Rotates the vector by a specified number of degrees.
